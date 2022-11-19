@@ -19,10 +19,29 @@ li {
   background: #aee4f0;
   max-height: 650px;
 }
+.overview {
+  padding-bottom: 20px;
+}
 .personal-info {
   text-align: center;
   font-size: 12px;
 }
 .temperature-description {
   padding: 20px;
+}
+.degrees {
+  font-size: 16px;
+  position: relative;
+  top: -14px;
+}
+img {
+  height: 180px;
+  width: 180px;
+}
+a:link {
+  color: #0b5ed7;
+  text-decoration: none;
+}
+a:visited {
+  color: #6c77a3;
 }

@@ -29,34 +29,36 @@
   <body>
     <div class="container">
       <div class="weather-app-content">
-        <form class="search-form" id="search-form">
-          <div class="row">
-            <div class="col-5">
-              <h1>Tehran, Iran</h1>
+        <div class="overview">
+          <form class="search-form" id="search-form">
+            <div class="row">
+              <div class="col-5">
+                <h1>Tehran, Iran</h1>
+              </div>
+              <div class="col-5">
+                <input
+                  type="search"
+                  placeholder="🔎 Type a city..."
+                  autocomplete="off"
+                  class="form-control shadow-sm"
+                  id="search-input"
+                />
+              </div>
+              <div class="col-2">
+                <input
+                  type="submit"
+                  value="Search"
+                  class="form-control btn btn-primary shadow-sm"
+                />
+              </div>
             </div>
-            <div class="col-5">
-              <input
-                type="search"
-                placeholder="Type a city..."
-                autofocus="on"
-                autocomplete="off"
-                class="form-control shadow-sm"
-                id="search-input"
-              />
-            </div>
-            <div class="col-2">
-              <input
-                type="submit"
-                value="Search"
-                class="form-control btn btn-primary shadow-sm"
-              />
-            </div>
-          </div>
-        </form>
-        <ul class="date-time">
-          <li id="date">saturday, nov. 19, 23:55</li>
-          <li id="description">clear</li>
-        </ul>
+          </form>
+
+          <ul class="date-time">
+            <li id="date">saturday, nov. 19, 23:55</li>
+            <li id="description">clear</li>
+          </ul>
+        </div>
         <div class="row">
           <div class="col-7">
             <div class="clearfix">
@@ -69,7 +71,9 @@
           <div class="col-5">
             <ul class="temperature-description">
               <li class="temperature" id="temperature">
-                <h1>10°C|°F</h1>
+                <h1>
+                  10<span class="degrees">°C|<a href="#">°F</a></span>
+                </h1>
               </li>
               <li>Humidity: <span id="humidity"></span>%</li>
               <li>Wind: <span id="wind"></span> km/h</li>
