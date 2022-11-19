@@ -16,12 +16,73 @@
       integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
       crossorigin="anonymous"
     ></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Secular+One&display=swap"
+      rel="stylesheet"
+    />
     <title>Weather App</title>
   </head>
   <body>
     <div class="container">
-      <h1>Hello World</h1>
-      <a href="" class="btn btn-primary">click me</a>
+      <div class="weather-app-content">
+        <form class="search-form" id="search-form">
+          <div class="row">
+            <div class="col-3">
+              <h1>Tehran, Iran</h1>
+            </div>
+            <div class="col-6">
+              <input
+                type="search"
+                placeholder="Type a city..."
+                autofocus="on"
+                autocomplete="off"
+                class="form-control shadow-sm"
+                id="search-input"
+              />
+            </div>
+            <div class="col-3">
+              <input
+                type="submit"
+                value="Search"
+                class="form-control btn btn-primary shadow-sm"
+              />
+            </div>
+          </div>
+        </form>
+        <ul class="date-time">
+          <li id="date">saturday, nov. 19, 23:55</li>
+          <li id="description">clear</li>
+        </ul>
+        <div class="row">
+          <div class="col-6">
+            <div class="clearfix">
+              <div class="float-left">
+                <img src="images/sun.png" alt="sunimage" />
+              </div>
+            </div>
+          </div>
+
+          <div class="col-6">
+            <ul>
+              <li class="temperature" id="temperature">
+                <h1>10°C|°F</h1>
+              </li>
+              <li>Humidity: <span id="humidity"></span>%</li>
+              <li>Wind: <span id="wind"></span> km/h</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="personal-info">
+        This project was coded by
+        <a href="mailto:faezee.azimii@gmail.com" target="_blank">Faeze Azimi</a>
+        and is
+        <a href="https://github.com/fa3ze/Faeze-Weather-App" target="_blank">
+          open-sourced on GitHub</a
+        >
+      </div>
     </div>
 
     <script src="src/index.js"></script>
