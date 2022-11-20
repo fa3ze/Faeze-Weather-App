@@ -67,3 +67,18 @@ a:visited {
   background-color: #ec6e4c;
   border-color: #ec6e4c;
 }
+.degrees .active {
+  color: black;
+  cursor: default;
+}
+.degrees .active:hover {
+  text-decoration: none;
+}
+
+.feels-degrees .feels-active {
+  color: black;
+  cursor: default;
+}
+.feels-degrees .feels-active:hover {
+  text-decoration: none;
+}

@@ -22,20 +22,23 @@ function formatDate(timestamp) {
 }
 function displayTemperature(response) {
   let temperatureElement = document.querySelector("#temperature");
-  temperatureElement.innerHTML = Math.round(response.data.main.temp);
   let cityElement = document.querySelector("#city");
-  cityElement.innerHTML = response.data.name;
   let feelsElement = document.querySelector("#feelslike");
-  feelsElement.innerHTML = Math.round(response.data.main.feels_like);
   let humidityElement = document.querySelector("#humidity");
-  humidityElement.innerHTML = Math.round(response.data.main.humidity);
   let windElement = document.querySelector("#wind");
-  windElement.innerHTML = Math.round(response.data.wind.speed);
   let descriptionElement = document.querySelector("#description");
-  descriptionElement.innerHTML = response.data.weather[0].description;
   let dateElement = document.querySelector("#date");
-  dateElement.innerHTML = formatDate(response.data.dt * 1000);
   let iconElement = document.querySelector("#icon");
+  celciusTemperature = response.data.main.temp;
+  feelsCelciusTemperature = response.data.main.feels_like;
+
+  temperatureElement.innerHTML = Math.round(celciusTemperature);
+  cityElement.innerHTML = response.data.name;
+  feelsElement.innerHTML = Math.round(feelsCelciusTemperature);
+  humidityElement.innerHTML = Math.round(response.data.main.humidity);
+  windElement.innerHTML = Math.round(response.data.wind.speed);
+  descriptionElement.innerHTML = response.data.weather[0].description;
+  dateElement.innerHTML = formatDate(response.data.dt * 1000);
   iconElement.setAttribute(
     "src",
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
@@ -53,6 +56,59 @@ function handleSubmit(event) {
   let searchInputElement = document.querySelector("#search-input");
   search(searchInputElement.value);
 }
-search("Tehran");
+
+function displayFarenheitTemperature(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#temperature");
+
+  celciusLink.classList.remove("active");
+  farenheitLink.classList.add("active");
+  let farenheitTemperature = (celciusTemperature * 9) / 5 + 32;
+  temperatureElement.innerHTML = Math.round(farenheitTemperature);
+}
+
+function displayCelciusTemperature(event) {
+  event.preventDefault();
+  celciusLink.classList.add("active");
+  farenheitLink.classList.remove("active");
+  let temperatureElement = document.querySelector("#temperature");
+  temperatureElement.innerHTML = Math.round(celciusTemperature);
+}
+let celciusTemperature = null;
+
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
+
+let farenheitLink = document.querySelector("#farenheit-link");
+farenheitLink.addEventListener("click", displayFarenheitTemperature);
+
+let celciusLink = document.querySelector("#celcius-link");
+celciusLink.addEventListener("click", displayCelciusTemperature);
+
+//trying coversion for feels
+
+function DisplayFeelsFarenheitTemperature(event) {
+  event.preventDefault();
+  let feelsElement = document.querySelector("#feelslike");
+  feelsCelciusLink.classList.remove("feels-active");
+  feelsFarenheitLink.classList.add("feels-active");
+  let feelsFarenheitTemperature = (feelsCelciusTemperature * 9) / 5 + 32;
+  feelsElement.innerHTML = Math.round(feelsFarenheitTemperature);
+}
+
+function displayFeelsCelciusTemperature(event) {
+  event.preventDefault();
+  feelsCelciusLink.classList.add("feels-active");
+  feelsFarenheitLink.classList.remove("feels-active");
+  let feelsElement = document.querySelector("#feelslike");
+  feelsElement.innerHTML = Math.round(feelsCelciusTemperature);
+}
+let feelsCelciusTemperature = null;
+
+let feelsFarenheitLink = document.querySelector("#feels-farenheit-link");
+feelsFarenheitLink.addEventListener("click", DisplayFeelsFarenheitTemperature);
+
+let feelsCelciusLink = document.querySelector("#feels-celcius-link");
+feelsCelciusLink.addEventListener("click", displayFeelsCelciusTemperature);
+
+search("Tehran");
