@@ -33,7 +33,7 @@
           <form class="search-form" id="search-form">
             <div class="row">
               <div class="col-5">
-                <h1 id="city"></h1>
+                <h1 class="city" id="city"></h1>
               </div>
               <div class="col-5">
                 <input
@@ -48,7 +48,7 @@
                 <input
                   type="submit"
                   value="Search"
-                  class="form-control btn btn-primary shadow-sm"
+                  class="form-control btn btn-primary shadow-sm w-100"
                 />
               </div>
             </div>
@@ -56,7 +56,6 @@
 
           <ul class="date-time">
             <li>Last updated: <span id="date"></span></li>
-            <li id="description"></li>
           </ul>
         </div>
         <div class="row">
@@ -64,6 +63,7 @@
             <div class="clearfix">
               <div class="float-left">
                 <img src="images/sun.png" alt="sunimage" id="icon" />
+                <li class="description" id="description"></li>
               </div>
             </div>
           </div>

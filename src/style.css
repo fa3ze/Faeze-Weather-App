@@ -22,6 +22,9 @@ li:first-letter {
   background: #aee4f0;
   max-height: 600px;
 }
+.city {
+  text-align: center;
+}
 .overview {
   padding-bottom: 20px;
 }
@@ -38,8 +41,16 @@ li:first-letter {
   top: -14px;
 }
 img {
-  height: 100px;
-  width: 100px;
+  height: 120px;
+  width: 120px;
+  position: relative;
+  top: 0;
+  left: 53px;
+}
+.description {
+  position: relative;
+  top: 0px;
+  left: 85px;
 }
 a:link {
   color: #ec6e4c;
@@ -48,6 +59,11 @@ a:link {
 a:visited {
   color: #6c77a3;
 }
+.btn {
+  background-color: #6c77a3;
+  border-color: #6c77a3;
+}
 .btn:hover {
   background-color: #ec6e4c;
+  border-color: #ec6e4c;
 }
