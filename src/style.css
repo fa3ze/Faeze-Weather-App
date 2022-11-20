@@ -10,7 +10,7 @@ li {
   margin: 0;
   padding: 0;
 }
-li::first-letter {
+li:first-letter {
   text-transform: capitalize;
 }
 .weather-app-content {
@@ -20,7 +20,7 @@ li::first-letter {
   border-radius: 20px;
   border: #68e1fd;
   background: #aee4f0;
-  max-height: 650px;
+  max-height: 600px;
 }
 .overview {
   padding-bottom: 20px;
@@ -38,13 +38,16 @@ li::first-letter {
   top: -14px;
 }
 img {
-  height: 180px;
-  width: 180px;
+  height: 100px;
+  width: 100px;
 }
 a:link {
-  color: #0b5ed7;
+  color: #ec6e4c;
   text-decoration: none;
 }
 a:visited {
   color: #6c77a3;
+}
+.btn:hover {
+  background-color: #ec6e4c;
 }
