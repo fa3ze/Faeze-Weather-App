@@ -20,6 +20,31 @@ function formatDate(timestamp) {
   let day = days[date.getDay()];
   return `${day} ${hours}:${minutes} `;
 }
+
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+  let days = ["Thusday", "Friday", "Sat", "sunday", "monday", "tuesday"];
+
+  let forecastHTML = `<div class="row">`;
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      ` <div class="col-2">
+              <div class="weather-forcast-date">${day}</div>
+              <img
+                src="http://openweathermap.org/img/wn/10d@2x.png"
+                alt="description"
+                class="future-icon"
+                width="36px"
+              /><br />
+              <div class="weather-forcast-max-temp">17°C</div>
+              <div class="weather-forcast-min-temp">9°C</div>
+            </div>`;
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
 function displayTemperature(response) {
   let temperatureElement = document.querySelector("#temperature");
   let cityElement = document.querySelector("#city");
@@ -29,6 +54,7 @@ function displayTemperature(response) {
   let descriptionElement = document.querySelector("#description");
   let dateElement = document.querySelector("#date");
   let iconElement = document.querySelector("#icon");
+
   celciusTemperature = response.data.main.temp;
   feelsCelciusTemperature = response.data.main.feels_like;
 
@@ -112,3 +138,5 @@ let feelsCelciusLink = document.querySelector("#feels-celcius-link");
 feelsCelciusLink.addEventListener("click", displayFeelsCelciusTemperature);
 
 search("Tehran");
+
+displayForecast();
