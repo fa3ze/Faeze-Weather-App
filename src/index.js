@@ -21,7 +21,8 @@ function formatDate(timestamp) {
   return `${day} ${hours}:${minutes} `;
 }
 
-function displayForecast() {
+function displayForecast(response) {
+  console.log(response.data);
   let forecastElement = document.querySelector("#forecast");
   let days = ["Thusday", "Friday", "Sat", "sunday", "monday", "tuesday"];
 
@@ -44,6 +45,14 @@ function displayForecast() {
 
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
+}
+
+function getForecast(coordinates) {
+  console.log(coordinates);
+  let apiKey = "5c33c2674a0cd16815872b2fdd978d22";
+  let apiUrl = `api.openweathermap.org/data/2.5/forecast/daily?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  console.log(apiUrl);
+  axios.get(apiUrl).then(displayForecast);
 }
 function displayTemperature(response) {
   let temperatureElement = document.querySelector("#temperature");
@@ -70,6 +79,8 @@ function displayTemperature(response) {
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
   iconElement.setAttribute("alt", response.data.weather[0].description);
+
+  getForecast(response.data.coord);
 }
 
 function search(city) {
@@ -138,5 +149,3 @@ let feelsCelciusLink = document.querySelector("#feels-celcius-link");
 feelsCelciusLink.addEventListener("click", displayFeelsCelciusTemperature);
 
 search("Tehran");
-
-displayForecast();
