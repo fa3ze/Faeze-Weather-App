@@ -40,7 +40,7 @@ li:first-letter {
   position: relative;
   top: -14px;
 }
-img {
+.current-icon {
   height: 120px;
   width: 120px;
   position: relative;
@@ -81,4 +81,22 @@ a:visited {
 }
 .feels-degrees .feels-active:hover {
   text-decoration: none;
+}
+.weather-forcast {
+  position: relative;
+  right: 22px;
+  font-weight: 50;
+  border-style: dashed;
+  padding: 10px;
+  border-radius: 50px;
+  text-align: center;
+  margin: 25px;
+  border-color: #6c77a3;
+  font-size: 14px;
+}
+.weather-forcast-date {
+  opacity: 0.8;
+}
+.weather-forcast-min-temp {
+  opacity: 0.6;
 }
